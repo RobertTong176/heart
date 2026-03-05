@@ -1,0 +1,1597 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Quicksand:wght@300;400;500&display=swap");
+
+/* ===== RESET & BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  background: #0a0a0a;
+  font-family: "Quicksand", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><text y='20' font-size='20'>💗</text></svg>"),
+    auto;
+}
+
+/* ===== INTRO SCREEN ===== */
+#intro-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, #1a0011, #0a0a0a);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 1.5s ease, transform 1.5s ease;
+  padding: 20px;
+}
+
+#intro-screen.hide {
+  opacity: 0;
+  transform: scale(1.2);
+  pointer-events: none;
+}
+
+.intro-heart {
+  font-size: 80px;
+  animation: introHeartBeat 1s ease-in-out infinite;
+  filter: drop-shadow(0 0 30px #ff2d6d);
+}
+
+.intro-text {
+  font-family: "Great Vibes", cursive;
+  color: #ff6b9d;
+  font-size: 2rem;
+  margin: 20px 0 40px;
+  text-shadow: 0 0 20px rgba(255, 107, 157, 0.5);
+  text-align: center;
+}
+
+.open-btn {
+  padding: 15px 50px;
+  background: linear-gradient(135deg, #ff2d6d, #ff6b9d, #ff2d6d);
+  background-size: 200% 200%;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  animation: gradientShift 3s ease infinite, glow 2s ease-in-out infinite;
+  box-shadow: 0 5px 30px rgba(255, 45, 109, 0.4);
+  -webkit-appearance: none;
+}
+
+.open-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 50px rgba(255, 45, 109, 0.7);
+}
+
+.open-btn:active {
+  transform: scale(0.98);
+}
+
+/* ===== KEYFRAMES ===== */
+@keyframes introHeartBeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.3);
+  }
+  30% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 5px 30px rgba(255, 45, 109, 0.4);
+  }
+  50% {
+    box-shadow: 0 5px 50px rgba(255, 45, 109, 0.8);
+  }
+}
+
+@keyframes heartBeat {
+  0% {
+    transform: scale(1);
+  }
+  5% {
+    transform: scale(1.15);
+  }
+  10% {
+    transform: scale(1.05);
+  }
+  15% {
+    transform: scale(1.25);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes ringRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes musicPulse {
+  0%,
+  100% {
+    box-shadow: 0 5px 20px rgba(255, 45, 109, 0.4);
+  }
+  50% {
+    box-shadow: 0 5px 40px rgba(255, 45, 109, 0.8),
+      0 0 60px rgba(255, 45, 109, 0.3);
+  }
+}
+
+@keyframes clickHeartFloat {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-150px) scale(0.3) rotate(45deg);
+  }
+}
+
+@keyframes shootingStar {
+  0% {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-500px) translateY(300px);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+@keyframes emojiFloat {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100px) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes auroraDrift {
+  0%,
+  100% {
+    transform: translateX(-25%) rotate(-2deg);
+  }
+  50% {
+    transform: translateX(-50%) rotate(2deg);
+  }
+}
+
+@keyframes finalPulse {
+  0%,
+  100% {
+    text-shadow: 0 0 60px rgba(255, 45, 109, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 0 0 100px rgba(255, 45, 109, 0.8);
+    transform: scale(1.05);
+  }
+}
+
+@keyframes snowFall {
+  0% {
+    transform: translateY(-20px) rotate(0deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ===== MAIN CONTENT ===== */
+.container {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* ===== CANVAS FOR PARTICLES ===== */
+#heartCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ===== STARFIELD BACKGROUND ===== */
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle var(--duration) ease-in-out infinite;
+}
+
+/* ===== SECTIONS ===== */
+section {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px 20px;
+}
+
+/* ===== HERO SECTION ===== */
+.hero-section {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 45, 109, 0.1),
+    transparent 70%
+  );
+}
+
+.big-heart {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  animation: heartBeat 1.2s ease-in-out infinite;
+  filter: drop-shadow(0 0 40px rgba(255, 45, 109, 0.6));
+  margin-bottom: 30px;
+}
+
+.big-heart svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-title {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  color: #ff6b9d;
+  text-shadow: 0 0 40px rgba(255, 107, 157, 0.5);
+  text-align: center;
+  opacity: 0;
+  animation: fadeInUp 2s ease forwards 0.5s;
+  padding: 0 10px;
+}
+
+.hero-subtitle {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  color: rgba(255, 182, 206, 0.8);
+  margin-top: 15px;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInUp 2s ease forwards 1s;
+}
+
+/* ===== LOVE LETTER SECTION ===== */
+.letter-section {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 20, 80, 0.05),
+    transparent 70%
+  );
+}
+
+.love-letter {
+  max-width: 650px;
+  width: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 45, 109, 0.05)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 107, 157, 0.15);
+  border-radius: 20px;
+  padding: 50px 40px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
+    inset 0 0 60px rgba(255, 45, 109, 0.03);
+}
+
+.love-letter::before {
+  content: "💌";
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 60px;
+  opacity: 0.15;
+  transform: rotate(15deg);
+}
+
+.letter-title {
+  font-family: "Great Vibes", cursive;
+  font-size: 2.5rem;
+  color: #ff6b9d;
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 0 0 20px rgba(255, 107, 157, 0.3);
+}
+
+.typewriter {
+  font-family: "Quicksand", sans-serif;
+  color: rgba(255, 200, 220, 0.9);
+  font-size: 1.05rem;
+  line-height: 2;
+  letter-spacing: 0.5px;
+  min-height: 200px;
+  word-break: break-word;
+}
+
+.typewriter .cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.2em;
+  background: #ff6b9d;
+  margin-left: 2px;
+  animation: blink 0.8s infinite;
+  vertical-align: text-bottom;
+}
+
+/* ===== TIMELINE SECTION ===== */
+.timeline-section {
+  min-height: auto;
+  padding: 100px 20px;
+}
+
+.section-title {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: #ff6b9d;
+  text-align: center;
+  margin-bottom: 60px;
+  text-shadow: 0 0 30px rgba(255, 107, 157, 0.3);
+  padding: 0 10px;
+}
+
+.timeline {
+  position: relative;
+  max-width: 600px;
+  width: 100%;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    #ff2d6d,
+    #ff6b9d,
+    #ff2d6d,
+    transparent
+  );
+}
+
+.timeline-item {
+  position: relative;
+  padding: 20px 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-item:nth-child(odd) {
+  text-align: right;
+  padding-right: calc(50% + 30px);
+}
+
+.timeline-item:nth-child(even) {
+  text-align: left;
+  padding-left: calc(50% + 30px);
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  top: 30px;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background: #ff2d6d;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(255, 45, 109, 0.6);
+  z-index: 1;
+}
+
+.timeline-content h3 {
+  font-family: "Dancing Script", cursive;
+  color: #ff6b9d;
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+}
+
+.timeline-content p {
+  color: rgba(255, 200, 220, 0.7);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ===== REASONS SECTION ===== */
+.reasons-section {
+  min-height: auto;
+  padding: 100px 20px;
+}
+
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  max-width: 900px;
+  width: 100%;
+}
+
+.reason-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 45, 109, 0.05)
+  );
+  border: 1px solid rgba(255, 107, 157, 0.1);
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+}
+
+.reason-card.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.reason-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  border-color: rgba(255, 107, 157, 0.4);
+  box-shadow: 0 20px 40px rgba(255, 45, 109, 0.15);
+}
+
+.reason-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.reason-card h3 {
+  font-family: "Dancing Script", cursive;
+  color: #ff6b9d;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.reason-card p {
+  color: rgba(255, 200, 220, 0.6);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ===== PHOTO GALLERY SECTION ===== */
+.gallery-section {
+  min-height: auto;
+  padding: 100px 20px;
+}
+
+.heart-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 800px;
+}
+
+.gallery-heart {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+.gallery-heart:nth-child(2) {
+  animation-delay: 0.5s;
+}
+.gallery-heart:nth-child(3) {
+  animation-delay: 1s;
+}
+.gallery-heart:nth-child(4) {
+  animation-delay: 1.5s;
+}
+.gallery-heart:nth-child(5) {
+  animation-delay: 2s;
+}
+.gallery-heart:nth-child(6) {
+  animation-delay: 2.5s;
+}
+
+.gallery-heart:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 30px rgba(255, 45, 109, 0.8));
+}
+
+.gallery-heart svg {
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-heart .heart-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: "Dancing Script", cursive;
+  font-size: 1rem;
+  text-align: center;
+  width: 80%;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+/* ===== PROMISE SECTION ===== */
+.promise-section {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 20, 80, 0.08),
+    transparent 70%
+  );
+}
+
+.promise-ring {
+  width: 200px;
+  height: 200px;
+  border: 3px solid rgba(255, 107, 157, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 40px;
+  animation: ringRotate 10s linear infinite;
+}
+
+.promise-ring::before {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border: 1px solid rgba(255, 107, 157, 0.1);
+  border-radius: 50%;
+  animation: ringRotate 15s linear infinite reverse;
+}
+
+.promise-ring::after {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border: 1px dashed rgba(255, 107, 157, 0.08);
+  border-radius: 50%;
+  animation: ringRotate 20s linear infinite;
+}
+
+.ring-icon {
+  font-size: 4rem;
+  animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+.promise-text {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: #ff6b9d;
+  text-align: center;
+  max-width: 600px;
+  line-height: 1.8;
+  text-shadow: 0 0 30px rgba(255, 107, 157, 0.3);
+  padding: 0 15px;
+}
+
+/* ===== COUNTDOWN SECTION ===== */
+.countdown-section {
+  min-height: auto;
+  padding: 100px 20px;
+}
+
+.countdown-container {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.countdown-item {
+  text-align: center;
+  min-width: 100px;
+}
+
+.countdown-number {
+  font-family: "Dancing Script", cursive;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #ff2d6d;
+  text-shadow: 0 0 30px rgba(255, 45, 109, 0.5);
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.countdown-label {
+  color: rgba(255, 200, 220, 0.5);
+  font-size: 0.85rem;
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.countdown-note {
+  color: rgba(255, 200, 220, 0.4);
+  margin-top: 20px;
+  font-size: 0.85rem;
+}
+
+/* ===== MUSIC PLAYER ===== */
+.music-toggle {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff2d6d, #ff6b9d);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 5px 20px rgba(255, 45, 109, 0.4);
+  transition: all 0.3s ease;
+  -webkit-appearance: none;
+}
+
+.music-toggle:hover {
+  transform: scale(1.1);
+}
+
+.music-toggle.playing {
+  animation: musicPulse 1s ease-in-out infinite;
+}
+
+/* ===== CLICK EFFECT ===== */
+.click-heart {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  font-size: 1.5rem;
+  animation: clickHeartFloat 1.5s ease-out forwards;
+}
+
+/* ===== SHOOTING HEARTS ===== */
+.shooting-heart {
+  position: fixed;
+  z-index: 1;
+  font-size: 1rem;
+  pointer-events: none;
+  animation: shootingStar 3s linear forwards;
+}
+
+/* ===== SCROLL INDICATOR ===== */
+.scroll-indicator {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  animation: bounce 2s ease-in-out infinite;
+  color: rgba(255, 107, 157, 0.5);
+  font-size: 1.5rem;
+  transition: opacity 0.5s;
+}
+
+/* ===== FLOATING EMOJIS ===== */
+.floating-emoji {
+  position: fixed;
+  z-index: 1;
+  pointer-events: none;
+  animation: emojiFloat linear forwards;
+  opacity: 0.6;
+}
+
+/* ===== AURORA BACKGROUND ===== */
+.aurora {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.aurora-band {
+  position: absolute;
+  width: 200%;
+  height: 300px;
+  opacity: 0.03;
+  filter: blur(80px);
+  animation: auroraDrift 15s ease-in-out infinite;
+}
+
+.aurora-band:nth-child(1) {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #ff2d6d,
+    #ff6b9d,
+    transparent
+  );
+  top: 10%;
+  animation-duration: 12s;
+}
+
+.aurora-band:nth-child(2) {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #ff6b9d,
+    #c471ed,
+    transparent
+  );
+  top: 40%;
+  animation-duration: 18s;
+  animation-delay: -5s;
+}
+
+.aurora-band:nth-child(3) {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #c471ed,
+    #ff2d6d,
+    transparent
+  );
+  top: 70%;
+  animation-duration: 15s;
+  animation-delay: -10s;
+}
+
+/* ===== Kiss Button ===== */
+.kiss-btn {
+  margin-top: 40px;
+  padding: 15px 40px;
+  background: transparent;
+  border: 2px solid rgba(255, 107, 157, 0.4);
+  border-radius: 50px;
+  color: #ff6b9d;
+  font-family: "Dancing Script", cursive;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  -webkit-appearance: none;
+}
+
+.kiss-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 45, 109, 0.2);
+  border-radius: 50%;
+  transition: all 0.5s ease;
+  transform: translate(-50%, -50%);
+}
+
+.kiss-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.kiss-btn:hover {
+  border-color: #ff2d6d;
+  color: white;
+  text-shadow: 0 0 10px rgba(255, 107, 157, 0.5);
+}
+
+.kiss-btn:active {
+  transform: scale(0.96);
+}
+
+/* ===== FINAL SECTION ===== */
+.final-section {
+  min-height: 100vh;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 20, 80, 0.08),
+    transparent 70%
+  );
+}
+
+.final-text {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(3rem, 8vw, 6rem);
+  color: #ff2d6d;
+  text-shadow: 0 0 60px rgba(255, 45, 109, 0.5);
+  animation: finalPulse 3s ease-in-out infinite;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.forever-badge {
+  margin-top: 30px;
+  padding: 10px 30px;
+  border: 1px solid rgba(255, 107, 157, 0.3);
+  border-radius: 50px;
+  color: rgba(255, 200, 220, 0.6);
+  font-size: 0.85rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+/* ===== Snowfall Hearts ===== */
+.heart-snow {
+  position: fixed;
+  top: -20px;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.5;
+  animation: snowFall linear forwards;
+}
+
+/* ============================================================
+   RESPONSIVE - TABLETS (max-width: 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+  section {
+    padding: 60px 16px;
+  }
+
+  .love-letter {
+    padding: 30px 25px;
+    margin: 0 10px;
+  }
+
+  .letter-title {
+    font-size: 2rem;
+  }
+
+  .typewriter {
+    font-size: 0.95rem;
+    line-height: 1.85;
+  }
+
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    text-align: left;
+    padding-left: 40px;
+    padding-right: 10px;
+  }
+
+  .timeline::before {
+    left: 10px;
+  }
+
+  .timeline-dot {
+    left: 10px;
+  }
+
+  .countdown-container {
+    gap: 15px;
+  }
+
+  .countdown-number {
+    font-size: 2.5rem;
+  }
+
+  .gallery-heart {
+    width: 120px;
+    height: 120px;
+  }
+
+  .reasons-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+  }
+
+  .big-heart {
+    width: 160px;
+    height: 160px;
+  }
+
+  .promise-ring {
+    width: 160px;
+    height: 160px;
+  }
+
+  .promise-ring::before {
+    width: 180px;
+    height: 180px;
+  }
+
+  .promise-ring::after {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE - iPhone SE / Small phones (max-width: 375px)
+   iPhone SE: 375x667
+   ============================================================ */
+@media (max-width: 375px) {
+  section {
+    padding: 40px 12px;
+    min-height: auto;
+  }
+
+  .hero-section {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  .intro-heart {
+    font-size: 60px;
+  }
+
+  .intro-text {
+    font-size: 1.5rem;
+    margin: 15px 0 30px;
+  }
+
+  .open-btn {
+    padding: 12px 35px;
+    font-size: 0.95rem;
+  }
+
+  .big-heart {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 20px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .love-letter {
+    padding: 25px 18px;
+    border-radius: 16px;
+    margin: 0 5px;
+  }
+
+  .love-letter::before {
+    font-size: 40px;
+  }
+
+  .letter-title {
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+  }
+
+  .typewriter {
+    font-size: 0.88rem;
+    line-height: 1.75;
+    min-height: 150px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 35px;
+  }
+
+  .reasons-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .reason-card {
+    padding: 22px 18px;
+  }
+
+  .reason-icon {
+    font-size: 2rem;
+  }
+
+  .reason-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .reason-card p {
+    font-size: 0.82rem;
+  }
+
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    padding-left: 32px;
+    padding-right: 5px;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .timeline-content p {
+    font-size: 0.82rem;
+  }
+
+  .gallery-heart {
+    width: 95px;
+    height: 95px;
+  }
+
+  .gallery-heart .heart-text {
+    font-size: 0.75rem;
+  }
+
+  .heart-gallery {
+    gap: 12px;
+  }
+
+  .countdown-container {
+    gap: 10px;
+  }
+
+  .countdown-item {
+    min-width: 70px;
+  }
+
+  .countdown-number {
+    font-size: 2rem;
+  }
+
+  .countdown-label {
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+  }
+
+  .promise-ring {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 25px;
+  }
+
+  .promise-ring::before {
+    width: 150px;
+    height: 150px;
+  }
+
+  .promise-ring::after {
+    width: 170px;
+    height: 170px;
+  }
+
+  .ring-icon {
+    font-size: 2.8rem;
+  }
+
+  .promise-text {
+    font-size: 1.3rem;
+    line-height: 1.6;
+  }
+
+  .kiss-btn {
+    padding: 12px 28px;
+    font-size: 1.1rem;
+    margin-top: 30px;
+  }
+
+  .forever-badge {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    padding: 8px 20px;
+  }
+
+  .music-toggle {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .scroll-indicator {
+    font-size: 1.2rem;
+    bottom: 20px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE - iPhone 15 / 14 / 13 / 12 (390px width)
+   iPhone 15: 393x852
+   iPhone 14: 390x844
+   iPhone 13: 390x844
+   iPhone 12: 390x844
+   ============================================================ */
+@media (min-width: 376px) and (max-width: 393px) {
+  section {
+    padding: 50px 14px;
+  }
+
+  .hero-section {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  .intro-heart {
+    font-size: 65px;
+  }
+
+  .intro-text {
+    font-size: 1.6rem;
+  }
+
+  .big-heart {
+    width: 145px;
+    height: 145px;
+  }
+
+  .love-letter {
+    padding: 28px 22px;
+    margin: 0 8px;
+  }
+
+  .letter-title {
+    font-size: 1.9rem;
+  }
+
+  .typewriter {
+    font-size: 0.92rem;
+    line-height: 1.8;
+  }
+
+  .reasons-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .reason-card {
+    padding: 25px 20px;
+  }
+
+  .gallery-heart {
+    width: 105px;
+    height: 105px;
+  }
+
+  .gallery-heart .heart-text {
+    font-size: 0.82rem;
+  }
+
+  .countdown-number {
+    font-size: 2.3rem;
+  }
+
+  .countdown-item {
+    min-width: 75px;
+  }
+
+  .promise-ring {
+    width: 145px;
+    height: 145px;
+  }
+
+  .promise-ring::before {
+    width: 165px;
+    height: 165px;
+  }
+
+  .promise-ring::after {
+    width: 185px;
+    height: 185px;
+  }
+
+  .music-toggle {
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    bottom: 25px;
+    right: 25px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE - iPhone 15 Plus / 14 Plus / Pro Max (430px width)
+   iPhone 15 Plus: 430x932
+   iPhone 15 Pro Max: 430x932
+   iPhone 14 Plus: 428x926
+   ============================================================ */
+@media (min-width: 394px) and (max-width: 430px) {
+  section {
+    padding: 55px 16px;
+  }
+
+  .hero-section {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  .intro-heart {
+    font-size: 70px;
+  }
+
+  .intro-text {
+    font-size: 1.7rem;
+  }
+
+  .open-btn {
+    padding: 14px 45px;
+    font-size: 1.05rem;
+  }
+
+  .big-heart {
+    width: 155px;
+    height: 155px;
+  }
+
+  .hero-title {
+    font-size: 2.4rem;
+  }
+
+  .love-letter {
+    padding: 32px 25px;
+    margin: 0 8px;
+  }
+
+  .letter-title {
+    font-size: 2rem;
+  }
+
+  .typewriter {
+    font-size: 0.95rem;
+    line-height: 1.85;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 45px;
+  }
+
+  .reasons-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .reason-card {
+    padding: 22px 16px;
+  }
+
+  .reason-icon {
+    font-size: 2.2rem;
+  }
+
+  .reason-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .reason-card p {
+    font-size: 0.85rem;
+  }
+
+  .gallery-heart {
+    width: 115px;
+    height: 115px;
+  }
+
+  .gallery-heart .heart-text {
+    font-size: 0.88rem;
+  }
+
+  .heart-gallery {
+    gap: 15px;
+  }
+
+  .countdown-number {
+    font-size: 2.5rem;
+  }
+
+  .countdown-item {
+    min-width: 85px;
+  }
+
+  .countdown-label {
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+  }
+
+  .promise-ring {
+    width: 155px;
+    height: 155px;
+  }
+
+  .promise-ring::before {
+    width: 175px;
+    height: 175px;
+  }
+
+  .promise-ring::after {
+    width: 195px;
+    height: 195px;
+  }
+
+  .ring-icon {
+    font-size: 3.2rem;
+  }
+
+  .promise-text {
+    font-size: 1.5rem;
+  }
+
+  .kiss-btn {
+    padding: 13px 35px;
+    font-size: 1.2rem;
+  }
+
+  .music-toggle {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+    bottom: 25px;
+    right: 25px;
+  }
+
+  .final-text {
+    font-size: clamp(2.8rem, 8vw, 4.5rem);
+  }
+
+  .forever-badge {
+    font-size: 0.78rem;
+    letter-spacing: 4px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE - All iPhones general (max-width: 430px)
+   Safe area & notch handling
+   ============================================================ */
+@media (max-width: 430px) {
+  /* Handle safe areas (notch/Dynamic Island) */
+  body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  #intro-screen {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .music-toggle {
+    bottom: calc(20px + env(safe-area-inset-bottom));
+    right: calc(20px + env(safe-area-inset-right));
+  }
+
+  .scroll-indicator {
+    bottom: calc(20px + env(safe-area-inset-bottom));
+  }
+
+  /* Smoother touch interactions */
+  .reason-card:hover {
+    transform: none;
+  }
+
+  .reason-card:active {
+    transform: scale(0.97);
+    border-color: rgba(255, 107, 157, 0.4);
+  }
+
+  .gallery-heart:hover {
+    transform: none;
+    filter: none;
+  }
+
+  .gallery-heart:active {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 20px rgba(255, 45, 109, 0.8));
+  }
+
+  /* Optimize animations for mobile performance */
+  .aurora-band {
+    animation-duration: 20s;
+  }
+
+  /* Prevent horizontal overflow */
+  .container,
+  section {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+}
+
+/* ============================================================
+   LANDSCAPE MODE for phones
+   ============================================================ */
+@media (max-width: 932px) and (orientation: landscape) {
+  section {
+    min-height: auto;
+    padding: 40px 30px;
+  }
+
+  .hero-section {
+    min-height: 100vh;
+    min-height: 100dvh;
+    flex-direction: row;
+    gap: 30px;
+  }
+
+  .big-heart {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 0;
+  }
+
+  .love-letter {
+    max-width: 90%;
+  }
+
+  .countdown-container {
+    gap: 25px;
+  }
+
+  .countdown-number {
+    font-size: 2.5rem;
+  }
+
+  .reasons-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gallery-heart {
+    width: 100px;
+    height: 100px;
+  }
+
+  .promise-ring {
+    width: 120px;
+    height: 120px;
+  }
+
+  .promise-ring::before {
+    width: 140px;
+    height: 140px;
+  }
+
+  .promise-ring::after {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+/* ============================================================
+   PREFER REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

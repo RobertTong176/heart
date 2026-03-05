@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="theme-color" content="#0a0a0a" />
+    <title>💕 Gửi Người Anh Yêu 💕</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- INTRO SCREEN -->
+    <div id="intro-screen">
+      <div class="intro-heart">💝</div>
+      <p class="intro-text">Có một điều muốn nói với em...</p>
+      <button class="open-btn" onclick="openLetter()">💕 Mở Ra Nào 💕</button>
+    </div>
+
+    <!-- AURORA BACKGROUND -->
+    <div class="aurora">
+      <div class="aurora-band"></div>
+      <div class="aurora-band"></div>
+      <div class="aurora-band"></div>
+    </div>
+
+    <!-- STARS -->
+    <div class="stars" id="stars"></div>
+
+    <!-- HEART CANVAS -->
+    <canvas id="heartCanvas"></canvas>
+
+    <div class="container" id="main-content" style="display: none">
+      <!-- HERO SECTION -->
+      <section class="hero-section">
+        <div class="big-heart">
+          <svg viewBox="0 0 200 200">
+            <defs>
+              <radialGradient id="heartGrad" cx="50%" cy="40%" r="60%">
+                <stop offset="0%" stop-color="#ff6b9d" />
+                <stop offset="100%" stop-color="#ff2d6d" />
+              </radialGradient>
+              <filter id="heartGlow">
+                <feGaussianBlur stdDeviation="3" result="glow" />
+                <feMerge>
+                  <feMergeNode in="glow" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+            <path
+              d="M100 180 C60 140, 0 100, 0 60 C0 20, 40 0, 70 0 C85 0, 100 15, 100 30 C100 15, 115 0, 130 0 C160 0, 200 20, 200 60 C200 100, 140 140, 100 180Z"
+              fill="url(#heartGrad)"
+              filter="url(#heartGlow)"
+            />
+          </svg>
+        </div>
+        <h1 class="hero-title">Gửi Người Anh Yêu Thương Nhất</h1>
+        <p class="hero-subtitle">✨ Mỗi nhịp tim đều gọi tên em ✨</p>
+        <button class="kiss-btn" onclick="heartExplosion()">
+          💋 Gửi Nụ Hôn
+        </button>
+      </section>
+
+      <!-- LOVE LETTER SECTION -->
+      <section class="letter-section">
+        <div class="love-letter">
+          <h2 class="letter-title">💌 Thư Tình</h2>
+          <div class="typewriter" id="typewriter"></div>
+        </div>
+      </section>
+
+      <!-- REASONS SECTION -->
+      <section class="reasons-section">
+        <h2 class="section-title">💖 Lý Do Anh Yêu Em</h2>
+        <div class="reasons-grid">
+          <div class="reason-card" data-animate>
+            <span class="reason-icon">😊</span>
+            <h3>Nụ Cười Của Em</h3>
+            <p>Mỗi khi em cười, cả thế giới của anh bừng sáng lên</p>
+          </div>
+          <div class="reason-card" data-animate>
+            <span class="reason-icon">💪</span>
+            <h3>Sự Mạnh Mẽ</h3>
+            <p>
+              Em luôn kiên cường trước mọi khó khăn, điều đó khiến anh ngưỡng mộ
+            </p>
+          </div>
+          <div class="reason-card" data-animate>
+            <span class="reason-icon">🤗</span>
+            <h3>Sự Ấm Áp</h3>
+            <p>Vòng tay em là nơi bình yên nhất mà anh từng biết</p>
+          </div>
+          <div class="reason-card" data-animate>
+            <span class="reason-icon">🌟</span>
+            <h3>Ánh Mắt Em</h3>
+            <p>Đôi mắt em sáng hơn cả ngàn vì sao trên bầu trời</p>
+          </div>
+          <div class="reason-card" data-animate>
+            <span class="reason-icon">🎵</span>
+            <h3>Giọng Nói Em</h3>
+            <p>Giọng em ngọt ngào hơn bất kỳ giai điệu nào</p>
+          </div>
+          <div class="reason-card" data-animate>
+            <span class="reason-icon">💝</span>
+            <h3>Tất Cả Của Em</h3>
+            <p>Anh yêu mọi thứ thuộc về em, từ điểm mạnh đến điểm yếu</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- LOVE TIMELINE -->
+      <section class="timeline-section">
+        <h2 class="section-title">💑 Hành Trình Yêu Thương</h2>
+        <div class="timeline">
+          <div class="timeline-item" data-animate>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>💫 Ngày Đầu Gặp Nhau</h3>
+              <p>
+                Khoảnh khắc anh nhìn thấy em, trái tim anh đã biết đây là người
+                đặc biệt
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item" data-animate>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>🌹 Lần Đầu Nói Chuyện</h3>
+              <p>Cuộc trò chuyện đầu tiên, và anh biết mình đã phải lòng em</p>
+            </div>
+          </div>
+          <div class="timeline-item" data-animate>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>💕 Tỏ Tình</h3>
+              <p>Ngày anh tập hợp can đảm để nói "Anh yêu em"</p>
+            </div>
+          </div>
+          <div class="timeline-item" data-animate>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>💍 Bên Nhau</h3>
+              <p>Và từ đó, mỗi ngày bên em là một ngày tuyệt vời</p>
+            </div>
+          </div>
+          <div class="timeline-item" data-animate>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>🌅 Hiện Tại & Mãi Mãi</h3>
+              <p>
+                Anh muốn cùng em viết tiếp câu chuyện này cho đến cuối cuộc đời
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HEART GALLERY -->
+      <section class="gallery-section">
+        <h2 class="section-title">💝 Những Điều Anh Muốn Nói</h2>
+        <div class="heart-gallery">
+          <div
+            class="gallery-heart"
+            onclick="this.style.animation='heartBeat 0.5s ease-in-out 3'"
+          >
+            <svg viewBox="0 0 200 200">
+              <path
+                d="M100 180C60 140,0 100,0 60C0 20,40 0,70 0C85 0,100 15,100 30C100 15,115 0,130 0C160 0,200 20,200 60C200 100,140 140,100 180Z"
+                fill="#ff2d6d"
+                opacity="0.8"
+              />
+            </svg>
+            <span class="heart-text">Em là tất cả</span>
+          </div>
+          <div
+            class="gallery-heart"
+            onclick="this.style.animation='heartBeat 0.5s ease-in-out 3'"
+          >
+            <svg viewBox="0 0 200 200">
+              <path
+                d="M100 180C60 140,0 100,0 60C0 20,40 0,70 0C85 0,100 15,100 30C100 15,115 0,130 0C160 0,200 20,200 60C200 100,140 140,100 180Z"
+                fill="#ff6b9d"
+                opacity="0.8"
+              />
+            </svg>
+            <span class="heart-text">Nhớ em nhiều</span>
+          </div>
+          <div
+            class="gallery-heart"
+            onclick="this.style.animation='heartBeat 0.5s ease-in-out 3'"
+          >
+            <svg viewBox="0 0 200 200">
+              <path
+                d="M100 180C60 140,0 100,0 60C0 20,40 0,70 0C85 0,100 15,100 30C100 15,115 0,130 0C160 0,200 20,200 60C200 100,140 140,100 180Z"
+                fill="#c471ed"
+                opacity="0.8"
+              />
+            </svg>
+            <span class="heart-text">Yêu em mãi</span>
+          </div>
+          <div
+            class="gallery-heart"
+            onclick="this.style.animation='heartBeat 0.5s ease-in-out 3'"
+          >
+            <svg viewBox="0 0 200 200">
+              <path
+                d="M100 180C60 140,0 100,0 60C0 20,40 0,70 0C85 0,100 15,100 30C100 15,115 0,130 0C160 0,200 20,200 60C200 100,140 140,100 180Z"
+                fill="#f64f59"
+                opacity="0.8"
+              />
+            </svg>
+            <span class="heart-text">Mãi bên em</span>
+          </div>
+          <div
+            class="gallery-heart"
+            onclick="this.style.animation='heartBeat 0.5s ease-in-out 3'"
+          >
+            <svg viewBox="0 0 200 200">
+              <path
+                d="M100 180C60 140,0 100,0 60C0 20,40 0,70 0C85 0,100 15,100 30C100 15,115 0,130 0C160 0,200 20,200 60C200 100,140 140,100 180Z"
+                fill="#e84393"
+                opacity="0.8"
+              />
+            </svg>
+            <span class="heart-text">Em là duy nhất</span>
+          </div>
+          <div
+            class="gallery-heart"
+            onclick="this.style.animation='heartBeat 0.5s ease-in-out 3'"
+          >
+            <svg viewBox="0 0 200 200">
+              <path
+                d="M100 180C60 140,0 100,0 60C0 20,40 0,70 0C85 0,100 15,100 30C100 15,115 0,130 0C160 0,200 20,200 60C200 100,140 140,100 180Z"
+                fill="#fd79a8"
+                opacity="0.8"
+              />
+            </svg>
+            <span class="heart-text">Forever ♾️</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- COUNTDOWN -->
+      <section class="countdown-section">
+        <h2 class="section-title">⏰ Thời Gian Yêu Em</h2>
+        <div class="countdown-container">
+          <div class="countdown-item">
+            <div class="countdown-number" id="count-days">0</div>
+            <div class="countdown-label">Ngày</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="count-hours">0</div>
+            <div class="countdown-label">Giờ</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="count-minutes">0</div>
+            <div class="countdown-label">Phút</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="count-seconds">0</div>
+            <div class="countdown-label">Giây</div>
+          </div>
+        </div>
+        <p class="countdown-note">
+          Kể từ ngày 01/09/2025 - ngày chúng mình yêu nhau 💕
+        </p>
+      </section>
+
+      <!-- PROMISE SECTION -->
+      <section class="promise-section">
+        <div class="promise-ring">
+          <span class="ring-icon">💎</span>
+        </div>
+        <p class="promise-text">
+          "Anh hứa sẽ yêu em, bảo vệ em và ở bên em mỗi ngày, cho đến khi trái
+          tim ngừng đập"
+        </p>
+        <button
+          class="kiss-btn"
+          onclick="heartFireworks()"
+          style="margin-top: 40px"
+        >
+          🎆 Nhấn Để Xem Pháo Hoa Tình Yêu
+        </button>
+      </section>
+
+      <!-- FINAL SECTION -->
+      <section class="final-section">
+        <div class="final-text">Anh Yêu Em 💕</div>
+        <div class="forever-badge">∞ forever & always ∞</div>
+        <button
+          class="kiss-btn"
+          onclick="grandFinale()"
+          style="margin-top: 50px"
+        >
+          🌟 Bấm Vào Đây, Bất Ngờ Cho Em 🌟
+        </button>
+      </section>
+    </div>
+
+    <!-- SCROLL INDICATOR -->
+    <div class="scroll-indicator" id="scrollIndicator" style="display: none">
+      ↓ cuộn xuống ↓
+    </div>
+
+    <!-- MUSIC BUTTON -->
+    <button
+      class="music-toggle"
+      id="musicBtn"
+      onclick="toggleMusic()"
+      style="display: none"
+    >
+      🎵
+    </button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
